@@ -51,6 +51,7 @@ export async function updateSession() {
   const session = await getSession();
   return {
     key: sessionName,
-    value: await encode(session)
+    value: await encode(session),
+    expires: new Date(Date.now() + sessionExpireTime)
   }
 }

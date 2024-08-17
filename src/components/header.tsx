@@ -7,7 +7,7 @@ export default async function Header() {
   const session = await getSession()
 
   return (
-    <header className={'border-b h-16 flex items-center'}>
+    <header className={'sticky top-0 z-50 backdrop-blur border-b h-16 flex items-center'}>
       <nav className={'w-full'}>
         <div className={'container flex items-center justify-between'}>
           <div className={'flex items-center gap-8'}>

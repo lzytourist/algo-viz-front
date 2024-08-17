@@ -23,5 +23,14 @@ export const SignInSchema = z.object({
     .min(8, 'must be at least 8 characters'),
 });
 
+export const UserSchema = z.object({
+  first_name: z.string().min(1, 'first name is required'),
+  last_name: z.string().min(1, 'last name is required'),
+  institute: z.string().nullable(),
+  gender: z.string().nullable(),
+  date_of_birth: z.coerce.date().max(new Date(Date.now())).nullable()
+});
+
 export type SignUpSchemaType = z.infer<typeof SignUpSchema>;
 export type SignInSchemaType = z.infer<typeof SignInSchema>;
+export type UserSchemaType = z.infer<typeof UserSchema>;

@@ -1,7 +1,7 @@
 'use server'
 
-import {SignInSchemaType, SignUpSchemaType} from "@/lib/definitions";
-import {createSession, destroySession} from "@/lib/jwt";
+import {SignInSchemaType, SignUpSchemaType, UserSchemaType} from "@/lib/definitions";
+import {createSession, destroySession, getSession} from "@/lib/jwt";
 
 const baseUrl = 'https://algo-viz-backend.vercel.app/api/auth'
 
@@ -47,6 +47,24 @@ export async function authUser(token: string) {
       'Content-Type': 'application/json',
       'Authorization': `Token ${token}`
     }
+  });
+  return await res.json();
+}
+
+export async function updateUser(data: UserSchemaType) {
+  const session = await getSession();
+  const token = session!.token as string;
+
+  const res = await fetch(`${baseUrl}/users/me/`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${token}`
+    },
+    method: 'PATCH',
+    body: JSON.stringify({
+      ...data,
+      date_of_birth: data.date_of_birth ? `${data.date_of_birth.getFullYear()}-${data.date_of_birth.getMonth() + 1}-${data.date_of_birth.getDay()}` : null
+    })
   });
   return await res.json();
 }

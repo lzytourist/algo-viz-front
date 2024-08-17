@@ -15,6 +15,7 @@ export async function middleware(req: NextRequest) {
       httpOnly: true,
       sameSite: 'strict',
       secure: false,
+      expires: updates.expires
     });
   }
   return res;
