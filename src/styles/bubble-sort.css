@@ -12,27 +12,19 @@
 @keyframes swapRightAnimation {
     0% {
         transform: translateX(40px);
-        opacity: 1;
     }
     50% {
         opacity: 0.5;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateY(10px);
     }
 }
 
 @keyframes swapLeftAnimation {
     0% {
         transform: translateX(-40px);
-        opacity: 1;
     }
     50% {
         opacity: 0.5;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
+        transform: translateY(-10px);
     }
 }

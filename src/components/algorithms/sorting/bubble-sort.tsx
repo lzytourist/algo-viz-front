@@ -38,12 +38,16 @@ export default function BubbleSort() {
   const bubbleSort = async () => {
     setSortingState(SortingState.STARTED);
     const n = arr.length;
-    for (let i = 0; i < n; i++) {
+    let sorted: boolean = false;
+    for (let i = 0; i < n && !sorted; i++) {
+      sorted = true;
       for (let j = 0; j < n - i - 1; j++) {
         setComparisonIndex(j);
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 700));
 
         if (arr[j] > arr[j + 1]) {
+          sorted = false;
+
           setSwapIndex(j + 1);
           setComparisonIndex(-2);
 
@@ -61,7 +65,7 @@ export default function BubbleSort() {
 
   return (
     <div className={'flex flex-col items-center'}>
-      <div className={'w-full min-h-[350px] text-white border-2 border-dashed flex justify-center items-end'}>
+      <div className={'w-full min-h-[350px] text-white flex justify-center items-end'}>
         {arr.map((value, index) => (
           <Bar
             key={index}
@@ -100,9 +104,9 @@ function Bar({value, animation, color}: { value: number; animation: string, colo
     <div
       className={`w-[30px] mx-2 text-center shadow-md ${color}`}
       style={{
-        animation: `${animation} 0.5s ease-in-out`,
+        animation: `${animation} 0.6s ease-in-out`,
         height: `${value * 22}px`,
-        transition: 'background-color 0.4s ease-in-out'
+        transition: 'background-color 0.5s ease-in-out'
       }}
     >{value}</div>
   )
