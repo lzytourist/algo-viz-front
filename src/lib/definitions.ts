@@ -31,6 +31,11 @@ export const UserSchema = z.object({
   date_of_birth: z.coerce.date().max(new Date(Date.now())).nullable()
 });
 
+export const CommentSchema = z.object({
+  text: z.string().min(1, 'Please enter a comment'),
+});
+
 export type SignUpSchemaType = z.infer<typeof SignUpSchema>;
 export type SignInSchemaType = z.infer<typeof SignInSchema>;
 export type UserSchemaType = z.infer<typeof UserSchema>;
+export type CommentSchemaType = z.infer<typeof CommentSchema>;

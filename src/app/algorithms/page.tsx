@@ -53,7 +53,7 @@ export default async function Page({searchParams: {page, category}}: {
         }
       </div>
       {
-        pageCount >= 1 && (
+        pageCount > 1 && (
           <div className={'container mb-8'}>
             <Pagination>
               <PaginationContent>

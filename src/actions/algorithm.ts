@@ -1,6 +1,8 @@
 'use server'
 
 import {base} from "next/dist/build/webpack/config/blocks/base";
+import {CommentSchemaType} from "@/lib/definitions";
+import {getSession} from "@/lib/jwt";
 
 const baseUrl = 'https://algo-viz-backend.vercel.app/api/algorithms';
 
@@ -18,6 +20,12 @@ export type Algorithm = {
   created_at: string,
   updated_at: string,
   category?: Category
+};
+
+export type Comment = {
+  user: string,
+  text: string,
+  created_at: string,
 };
 
 export type Result = {
@@ -59,5 +67,34 @@ export async function getAlgorithm(slug: string) {
     }
   });
 
+  return res.json();
+}
+
+export async function postComment(data: CommentSchemaType, slug: string) {
+  const session = await getSession();
+  const {token} = session!;
+
+  const res = await fetch(`${baseUrl}/${slug}/comments/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token ${token}`
+    },
+    body: JSON.stringify({...data})
+  });
+
+  const {status} = res;
+
+  return {
+    status,
+  }
+}
+
+export async function getComments(slug: string, page: number = 1) {
+  const res = await fetch(`${baseUrl}/${slug}/comments/?page=${page}`, {
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
   return res.json();
 }
