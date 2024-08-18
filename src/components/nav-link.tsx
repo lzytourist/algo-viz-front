@@ -8,7 +8,7 @@ export function NavLink({ href, text }: { href: string, text: string }) {
 
   return (
     <Link
-      className={pathname == href ? 'text-primary' : 'text-secondary-foreground'}
+      className={pathname == href || (pathname.startsWith('/algorithms') && href.startsWith('/algorithms')) ? 'text-primary' : 'text-secondary-foreground'}
       href={href}>{text}</Link>
   )
 }
