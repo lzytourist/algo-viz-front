@@ -75,6 +75,7 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  safelist: ['list-disc', 'list-decimal', 'my-4', 'ml-8', 'ml-4', 'text-2xl']
 } satisfies Config
 
 export default config
