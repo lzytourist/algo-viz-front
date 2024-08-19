@@ -30,7 +30,7 @@ export default async function Page({params: {slug}, searchParams: {page}}: {
           {
             !session ? (
               <>
-                <h3>Please login to share your thoughts.</h3>
+                <h3 className={'text-3xl mb-2 text-secondary-foreground/70'}>Please login to share your thoughts.</h3>
                 <Button asChild>
                   <Link href={'/sign-in'}>Sign In</Link>
                 </Button>
