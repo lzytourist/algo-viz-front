@@ -3,52 +3,8 @@
 import {useEffect, useState} from "react";
 import "@/styles/bfs.css";
 import {Button} from "@/components/ui/button";
+import {AlgoState, Box, dx, dy, Queue, RowCol} from "@/components/algorithms/graph/utils";
 
-type Box = {
-  color: string,
-  type: 'start' | 'end' | 'wall' | 'empty',
-  animation?: string
-};
-
-type RowCol = {
-  row: number,
-  col: number
-};
-
-enum BFSState {
-  NOT_STARTED,
-  STARTED,
-  COMPLETED
-}
-
-class Queue {
-  private frontIdx: number;
-  private readonly items: RowCol[];
-
-  constructor() {
-    this.items = [];
-    this.frontIdx = 0
-  }
-
-  push(row: number, col: number) {
-    this.items.push({row, col});
-  }
-
-  isEmpty(): boolean {
-    return this.items.length - this.frontIdx <= 0;
-  }
-
-  front() {
-    return this.items[this.frontIdx];
-  }
-
-  pop() {
-    this.frontIdx++;
-  }
-}
-
-const dx: number[] = [0, 0, 1, -1];
-const dy: number[] = [1, -1, 0, 0];
 const ROW: number = 15;
 const COL: number = 30;
 
@@ -57,7 +13,7 @@ export default function BFS() {
   const [boxType, setBoxType] = useState<'start' | 'end' | 'empty' | 'wall'>('start');
   const [start, setStart] = useState<RowCol>({row: 0, col: 0});
   const [end, setEnd] = useState<RowCol>({row: -1, col: -1});
-  const [algoState, setAlgState] = useState<BFSState>(BFSState.NOT_STARTED);
+  const [algoState, setAlgState] = useState<AlgoState>(AlgoState.NOT_STARTED);
 
   const resetGrid = () => {
     const tmpGrid: Box[][] = [];
@@ -71,7 +27,7 @@ export default function BFS() {
     setGrid(tmpGrid);
     setBoxType('start');
     setEnd({row: -1, col: -1});
-    setAlgState(BFSState.NOT_STARTED);
+    setAlgState(AlgoState.NOT_STARTED);
   };
 
   useEffect(() => {
@@ -119,7 +75,7 @@ export default function BFS() {
   };
 
   const applyBFS = async () => {
-    setAlgState(BFSState.STARTED);
+    setAlgState(AlgoState.STARTED);
 
     const queue = new Queue();
     queue.push(start.row, start.col);
@@ -176,7 +132,7 @@ export default function BFS() {
       await constructPath(path);
     }
 
-    setAlgState(BFSState.COMPLETED);
+    setAlgState(AlgoState.COMPLETED);
   };
 
   return (
@@ -206,7 +162,7 @@ export default function BFS() {
       <div className={'my-4 flex items-center justify-center'}>
         <Button
           onClick={applyBFS}
-          disabled={end.row == -1 || algoState != BFSState.NOT_STARTED}
+          disabled={end.row == -1 || algoState != AlgoState.NOT_STARTED}
           className={'rounded-r-none'}>Start</Button>
         <Button
           onClick={resetGrid}
