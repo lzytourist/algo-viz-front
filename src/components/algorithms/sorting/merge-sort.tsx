@@ -128,7 +128,7 @@ export default function MergeSort() {
 
   useEffect(() => {
     reset();
-  });
+  }, []);
 
   const applyState = (state: MergeSortState) => {
     const tmpGrid = grid.slice();
