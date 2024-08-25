@@ -37,6 +37,11 @@ To get started with the frontend, follow these steps:
     ```
     npm install
     ```
+4. Create ```.env.local``` and add:
+
+    ```
+    SECRETKEY='your_secret_key'
+    ```
 
 ## Usage
 
