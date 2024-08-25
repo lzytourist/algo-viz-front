@@ -3,6 +3,8 @@
 AlgoViz is a project designed to visualize algorithms through an interactive and intuitive interface. This repository
 contains the frontend part of the project, developed using Next.js and Shadcn UI.
 
+https://algo-viz-front.vercel.app/
+
 ## Description
 
 AlgoViz aims to provide a platform where users can visualize and interact with various algorithms. This frontend
