@@ -91,3 +91,23 @@ export class PriorityQueue {
     return this.items.shift()!;
   }
 }
+
+export class Stack {
+  private readonly items: RowCol[];
+
+  constructor() {
+    this.items = [];
+  }
+
+  push(row: number, col: number) {
+    this.items.push({row, col});
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  pop(): RowCol {
+    return this.items.pop()!;
+  }
+}
