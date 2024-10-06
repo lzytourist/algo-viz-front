@@ -14,7 +14,11 @@ export default function UpdateAccountForm({user}: { user: UserSchemaType }) {
   const form = useForm<UserSchemaType>({
     resolver: zodResolver(UserSchema),
     defaultValues: {
-      ...user,
+      first_name: user.first_name ?? '',
+      last_name: user.last_name ?? '',
+      gender: user.gender ?? '',
+      institute: user.institute ?? '',
+      date_of_birth: user.date_of_birth ?? new Date()
     }
   });
 
