@@ -4,7 +4,7 @@ import {base} from "next/dist/build/webpack/config/blocks/base";
 import {CommentSchemaType} from "@/lib/definitions";
 import {getSession} from "@/lib/jwt";
 
-const baseUrl = 'https://algo-viz-backend.vercel.app/api/algorithms';
+const baseUrl = `${process.env.BASE_API_ENDPOINT}/algorithms`;
 
 export type Category = {
   name: string;

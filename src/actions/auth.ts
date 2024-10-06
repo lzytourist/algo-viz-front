@@ -3,7 +3,7 @@
 import {SignInSchemaType, SignUpSchemaType, UserSchemaType} from "@/lib/definitions";
 import {createSession, destroySession, getSession} from "@/lib/jwt";
 
-const baseUrl = 'https://algo-viz-backend.vercel.app/api/auth'
+const baseUrl = `${process.env.BASE_API_ENDPOINT}/auth`;
 
 export async function signUp(data: SignUpSchemaType) {
   const res = await fetch(`${baseUrl}/users/`, {
