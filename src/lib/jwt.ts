@@ -17,10 +17,15 @@ export async function encode(payload: any) {
 }
 
 export async function decode(input: string) {
-  const {payload} = await jwtVerify(input, key, {
-    algorithms: ['HS256'],
-  });
-  return payload;
+  try {
+    const {payload} = await jwtVerify(input, key, {
+      algorithms: ['HS256'],
+    });
+    return payload;
+  } catch (err) {
+    console.log(err)
+  }
+  return null;
 }
 
 export async function createSession(user: { email: string, first_name: string, last_name: string }, token: string) {
