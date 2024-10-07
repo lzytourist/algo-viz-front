@@ -1,12 +1,13 @@
-import {getSession} from "@/lib/jwt";
-import AStar from "@/components/algorithms/graph/a-star";
-import BFS from "@/components/algorithms/graph/bfs";
+import Overview from "@/components/overview";
+import GettingStarted from "@/components/getting-started";
+import RecentAlgorithms from "@/components/recent-algorithms";
 
-export default async function Home() {
-  const session = await getSession();
+export default function Home() {
   return (
-    <div className={'container my-8'}>
-      <AStar/>
+    <div className={''}>
+      <Overview/>
+      <GettingStarted/>
+      <RecentAlgorithms/>
     </div>
   );
 }
