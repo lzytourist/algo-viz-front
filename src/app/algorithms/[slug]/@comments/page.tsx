@@ -24,17 +24,17 @@ export default async function Page({params: {slug}, searchParams: {page}}: {
   const pageCount = Math.ceil(_page / 15);
 
   return (
-    <div className={'container border-t-2 mb-8 pt-8'}>
+    <div className={'bg-secondary container py-8'}>
       <div className={'grid gap-4 grid-cols-1 lg:grid-cols-3'}>
-        <div>
+        <div className={''}>
           {
             !session ? (
-              <>
+              <div className={''}>
                 <h3 className={'text-3xl mb-2 text-secondary-foreground/70'}>Please login to share your thoughts.</h3>
                 <Button asChild>
                   <Link href={'/sign-in'}>Sign In</Link>
                 </Button>
-              </>
+              </div>
             ) : (
               <>
                 <h3 className={'text-3xl mb-2 text-secondary-foreground/70'}>Share your thoughts</h3>

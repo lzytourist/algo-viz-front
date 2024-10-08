@@ -20,13 +20,13 @@ export default async function Page({searchParams: {page, category}}: {
   const _page: number = Number(page ?? 1).valueOf();
 
   return (
-    <>
-      <div className={'h-36 lg:h-56 bg-secondary text-secondary-foreground'}>
+    <div className={'bg-secondary'}>
+      <div className={'h-36 lg:h-56 bg-gradient-to-r from-green-50 to-green-200 text-primary'}>
         <div className={'container h-full flex items-center justify-center'}>
-          <h1 className={'text-5xl'}>Algorithms</h1>
+          <h1 className={'text-5xl font-bold'}>Algorithms</h1>
         </div>
       </div>
-      <div className={'container my-8 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}>
+      <div className={'container py-8 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}>
         {
           algorithms.results.map((algorithm: Algorithm) => (
             <Card key={algorithm.slug}>
@@ -82,6 +82,6 @@ export default async function Page({searchParams: {page, category}}: {
           </div>
         )
       }
-    </>
+    </div>
   )
 }
