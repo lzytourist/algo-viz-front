@@ -130,7 +130,7 @@ export default function AStar() {
         });
       }
 
-      await new Promise(resolve => setTimeout(resolve, speed));
+      await new Promise(resolve => setTimeout(resolve, 400 - speed));
 
       if (u.row == end.row && u.col == end.col) {
         await constructPath(path);
@@ -164,7 +164,6 @@ export default function AStar() {
   return (
     <div className={'flex items-center flex-col gap-y-4'}>
       <div>
-        <h1 className={'text-3xl text-center mb-4'}>A* Search</h1>
         <div className={'flex items-center gap-4'}>
           <div className={'flex items-center space-x-2'}>
             <Checkbox
@@ -180,7 +179,7 @@ export default function AStar() {
               onValueChange={val => setSpeed(val[0])}
               value={[speed]}
               max={400}
-              step={50}
+              step={1}
               min={0}/>
           </div>
         </div>
