@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-secondary/70 pt-8 text-secondary-foreground">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+    <footer className="w-full bg-gradient-to-t from-green-200 to-gray-100 text-secondary-foreground">
+      <div className="container py-8 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
 
         <div className="mb-6 md:mb-0">
           <h3 className="text-3xl font-bold">AlgoViz</h3>
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
       </div>
-      <div className="py-4 text-center text-sm bg-secondary">
+      <div className="py-4 text-center text-sm bg-green-200">
         &copy; {new Date().getFullYear()} AlgoViz. All rights reserved.
       </div>
     </footer>

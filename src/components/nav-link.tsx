@@ -3,7 +3,7 @@
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
-export function NavLink({ href, text }: { href: string, text: string }) {
+export default function NavLink({ href, text }: { href: string, text: string }) {
   const pathname = usePathname();
 
   return (
