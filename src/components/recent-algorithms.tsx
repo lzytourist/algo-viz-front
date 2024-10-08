@@ -12,7 +12,7 @@ export default async function RecentAlgorithms() {
   const algorithms = result.results;
 
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-20 bg-secondary">
       <div className="container mx-auto">
         <h2 className="text-center text-4xl font-bold text-gray-900 mb-8">Recent</h2>
 
