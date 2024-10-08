@@ -136,9 +136,8 @@ export default function BFS() {
   };
 
   return (
-    <div className={'container my-8'}>
-      <h1 className={'text-4xl mb-4'}>BFS</h1>
-      <div>
+    <div className={'flex items-center flex-col'}>
+      <div className={''}>
         {
           grid.map((row: Box[], r_idx: number) => (
             <div key={r_idx} className={'flex items-center space-x-0.5 space-y-0.5'}>
