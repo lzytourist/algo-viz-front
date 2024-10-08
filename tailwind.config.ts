@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type {Config} from "tailwindcss"
 
 const config = {
   darkMode: ["class"],
@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -60,12 +60,12 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {height: "0"},
+          to: {height: "var(--radix-accordion-content-height)"},
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: {height: "var(--radix-accordion-content-height)"},
+          to: {height: "0"},
         },
       },
       animation: {
@@ -75,7 +75,15 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-  safelist: ['list-disc', 'list-decimal', 'my-4', 'ml-8', 'ml-4', 'text-2xl']
+  safelist: [
+    'list-disc', 'list-decimal', 'list-inside',
+    'my-4', 'ml-8', 'ml-4', 'mb-10',
+    'text-2xl',
+    'bg-gray-900',
+    'text-white',
+    'p-4',
+    'rounded-md',
+    'overflow-x-auto']
 } satisfies Config
 
 export default config
