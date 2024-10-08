@@ -18,7 +18,7 @@ export default function AStar() {
   const [start, setStart] = useState<RowCol>({row: 0, col: 0});
   const [end, setEnd] = useState<RowCol>({row: 0, col: 0});
   const [algoState, setAlgoState] = useState<AlgoState>(AlgoState.NOT_STARTED);
-  const [speed, setSpeed] = useState<number>(50);
+  const [speed, setSpeed] = useState<number>(350);
   const [diagonal, setDiagonal] = useState<boolean>(false);
   const [mouseDown, setMouseDown] = useState<boolean>(false);
 
